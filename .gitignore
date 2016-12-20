@@ -4,3 +4,14 @@
 */*/obj
 #ºöÂÔ°üÄ¿Â¼
 */packages
+/dapper/Demo/.vs
+/dapper/Demo/packages
+/emit/test/test/packages
+/emit/test/test/bin
+/emit/test/test/obj
+/ImageCutter/obj
+/ImageCutter/App_Data
+/ImageCutter/bin
+/packages
+/regex/bin
+/regex/obj

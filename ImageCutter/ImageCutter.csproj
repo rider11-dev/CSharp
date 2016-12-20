@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF5D784D-CC06-4088-BD28-DD93A08A01FA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ImageCutter</RootNamespace>
+    <AssemblyName>ImageCutter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="CutAvatarParams.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ImageHelper.cs" />
+    <Compile Include="ImgHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultEntity.cs" />
+    <Content Include="Scripts\ImageCrop.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap-fileinput-4.3.4\.gitignore" />
+    <Content Include="bootstrap-fileinput-4.3.4\css\fileinput.css" />
+    <Content Include="bootstrap-fileinput-4.3.4\css\fileinput.min.css" />
+    <Content Include="bootstrap-fileinput-4.3.4\examples\index.html" />
+    <Content Include="bootstrap-fileinput-4.3.4\img\loading-sm.gif" />
+    <Content Include="bootstrap-fileinput-4.3.4\img\loading.gif" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\fileinput.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\fileinput.min.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\ar.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\bg.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\ca.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\cr.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\cz.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\da.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\de.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\el.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\es.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\fa.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\fi.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\fr.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\hu.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\id.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\it.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\ja.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\LANG.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\nl.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\pl.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\pt-BR.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\pt.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\ro.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\ru.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\sk.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\th.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\tr.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\uk.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\zh-TW.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\locales\zh.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\plugins\canvas-to-blob.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\plugins\canvas-to-blob.min.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\plugins\purify.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\plugins\purify.min.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\plugins\sortable.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\js\plugins\sortable.min.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\themes\fa\theme.js" />
+    <Content Include="bootstrap-fileinput-4.3.4\themes\gly\theme.js" />
+    <Content Include="Content\blank.jpg" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\demo.jpg" />
+    <Content Include="Content\img.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Jcrop-1902\css\Jcrop.gif" />
+    <Content Include="Jcrop-1902\css\jquery.Jcrop.css" />
+    <Content Include="Jcrop-1902\css\jquery.Jcrop.min.css" />
+    <Content Include="Jcrop-1902\demos\demo_files\demos.css" />
+    <Content Include="Jcrop-1902\demos\demo_files\main.css" />
+    <Content Include="Jcrop-1902\demos\demo_files\pool.jpg" />
+    <Content Include="Jcrop-1902\demos\demo_files\sago.jpg" />
+    <Content Include="Jcrop-1902\demos\demo_files\sagomod.jpg" />
+    <Content Include="Jcrop-1902\demos\demo_files\sagomod.png" />
+    <Content Include="Jcrop-1902\demos\non-image.html" />
+    <Content Include="Jcrop-1902\demos\styling.html" />
+    <Content Include="Jcrop-1902\demos\tutorial1.html" />
+    <Content Include="Jcrop-1902\demos\tutorial2.html" />
+    <Content Include="Jcrop-1902\demos\tutorial3.html" />
+    <Content Include="Jcrop-1902\demos\tutorial4.html" />
+    <Content Include="Jcrop-1902\demos\tutorial5.html" />
+    <Content Include="Jcrop-1902\index.html" />
+    <Content Include="Jcrop-1902\js\jquery.color.js" />
+    <Content Include="Jcrop-1902\js\jquery.Jcrop.js" />
+    <Content Include="Jcrop-1902\js\jquery.Jcrop.min.js" />
+    <Content Include="Jcrop-1902\js\jquery.min.js" />
+    <Content Include="Jcrop-1902\MIT-LICENSE.txt" />
+    <Content Include="Jcrop-2.0.4\css\Jcrop.css" />
+    <Content Include="Jcrop-2.0.4\css\Jcrop.gif" />
+    <Content Include="Jcrop-2.0.4\css\Jcrop.min.css" />
+    <Content Include="Jcrop-2.0.4\demos\basic.html" />
+    <Content Include="Jcrop-2.0.4\demos\box-sizing.html" />
+    <Content Include="Jcrop-2.0.4\demos\circle.html" />
+    <Content Include="Jcrop-2.0.4\demos\coords.html" />
+    <Content Include="Jcrop-2.0.4\demos\demo.jpg" />
+    <Content Include="Jcrop-2.0.4\demos\demo_files\demos.css" />
+    <Content Include="Jcrop-2.0.4\demos\demo_files\main.css" />
+    <Content Include="Jcrop-2.0.4\demos\demo_files\pool.jpg" />
+    <Content Include="Jcrop-2.0.4\demos\demo_files\sago.jpg" />
+    <Content Include="Jcrop-2.0.4\demos\demo_files\sagomod.jpg" />
+    <Content Include="Jcrop-2.0.4\demos\demo_files\sagomod.png" />
+    <Content Include="Jcrop-2.0.4\demos\index.html" />
+    <Content Include="Jcrop-2.0.4\demos\non-image.html" />
+    <Content Include="Jcrop-2.0.4\demos\panel.html" />
+    <Content Include="Jcrop-2.0.4\demos\thumbnail.html" />
+    <Content Include="Jcrop-2.0.4\Gruntfile.js" />
+    <Content Include="Jcrop-2.0.4\index.html" />
+    <Content Include="Jcrop-2.0.4\js\Jcrop.js" />
+    <Content Include="Jcrop-2.0.4\js\Jcrop.min.js" />
+    <Content Include="Jcrop-2.0.4\js\jquery.color.js" />
+    <Content Include="Jcrop-2.0.4\js\jquery.min.js" />
+    <Content Include="Jcrop-2.0.4\MIT-LICENSE.txt" />
+    <Content Include="Jcrop-2.0.4\src\api.js" />
+    <Content Include="Jcrop-2.0.4\src\component\CanvasAnimator.js" />
+    <Content Include="Jcrop-2.0.4\src\component\CropAnimator.js" />
+    <Content Include="Jcrop-2.0.4\src\component\DialDrag.js" />
+    <Content Include="Jcrop-2.0.4\src\component\DragState.js" />
+    <Content Include="Jcrop-2.0.4\src\component\EventManager.js" />
+    <Content Include="Jcrop-2.0.4\src\component\ImageLoader.js" />
+    <Content Include="Jcrop-2.0.4\src\component\JcropTouch.js" />
+    <Content Include="Jcrop-2.0.4\src\component\KeyWatcher.js" />
+    <Content Include="Jcrop-2.0.4\src\component\Selection.js" />
+    <Content Include="Jcrop-2.0.4\src\component\StageDrag.js" />
+    <Content Include="Jcrop-2.0.4\src\component\StageManager.js" />
+    <Content Include="Jcrop-2.0.4\src\component\Thumbnailer.js" />
+    <Content Include="Jcrop-2.0.4\src\constructor.js" />
+    <Content Include="Jcrop-2.0.4\src\defaults.js" />
+    <Content Include="Jcrop-2.0.4\src\filter\BackoffFilter.js" />
+    <Content Include="Jcrop-2.0.4\src\filter\ConstrainFilter.js" />
+    <Content Include="Jcrop-2.0.4\src\filter\ExtentFilter.js" />
+    <Content Include="Jcrop-2.0.4\src\filter\GridFilter.js" />
+    <Content Include="Jcrop-2.0.4\src\filter\RatioFilter.js" />
+    <Content Include="Jcrop-2.0.4\src\filter\RoundFilter.js" />
+    <Content Include="Jcrop-2.0.4\src\filter\ShadeFilter.js" />
+    <Content Include="Jcrop-2.0.4\src\intro.js" />
+    <Content Include="Jcrop-2.0.4\src\modernizr.js" />
+    <Content Include="Jcrop-2.0.4\src\outro.js" />
+    <Content Include="Jcrop-2.0.4\src\plugin.js" />
+    <Content Include="Jcrop-2.0.4\src\stage\Abstract.js" />
+    <Content Include="Jcrop-2.0.4\src\stage\Canvas.js" />
+    <Content Include="Jcrop-2.0.4\src\stage\CssTransform.js" />
+    <Content Include="Jcrop-2.0.4\src\stage\Image.js" />
+    <Content Include="Jcrop-2.0.4\src\static.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Jcrop-2.0.4\bower.json" />
+    <Content Include="Jcrop-2.0.4\demos\crop.php" />
+    <Content Include="Jcrop-2.0.4\package.json" />
+    <Content Include="Jcrop-2.0.4\README.md" />
+    <Content Include="Jcrop-2.0.4\src\css\Jcrop.less" />
+    <Content Include="Jcrop-2.0.4\src\css\README.md" />
+    <Content Include="Jcrop-2.0.4\src\css\_bootstrap.less" />
+    <Content Include="Jcrop-2.0.4\src\css\_reset.less" />
+    <Content Include="Jcrop-2.0.4\src\css\_tapmodo.less" />
+    <Content Include="Jcrop-2.0.4\src\README.md" />
+    <Content Include="Jcrop-1902\demos\crop.php" />
+    <Content Include="Jcrop-1902\README.md" />
+    <Content Include="bootstrap-fileinput-4.3.4\.github\CONTRIBUTING.md" />
+    <Content Include="bootstrap-fileinput-4.3.4\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="bootstrap-fileinput-4.3.4\.github\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="bootstrap-fileinput-4.3.4\bower.json" />
+    <Content Include="bootstrap-fileinput-4.3.4\CHANGE.md" />
+    <Content Include="bootstrap-fileinput-4.3.4\composer.json" />
+    <Content Include="bootstrap-fileinput-4.3.4\LICENSE.md" />
+    <Content Include="bootstrap-fileinput-4.3.4\nuget\build.bat" />
+    <Content Include="bootstrap-fileinput-4.3.4\nuget\Package.nuspec" />
+    <Content Include="bootstrap-fileinput-4.3.4\package.json" />
+    <Content Include="bootstrap-fileinput-4.3.4\README.md" />
+    <Content Include="bootstrap-fileinput-4.3.4\sass\fileinput.scss" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\FileUpload.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\Index.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>9618</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9618/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

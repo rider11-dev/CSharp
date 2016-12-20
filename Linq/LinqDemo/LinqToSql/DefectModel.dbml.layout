@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DefaultModel">
+  <DataContextMoniker Name="/DefectModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2afb86f9-5255-4181-9420-2d275620b62d" absoluteBounds="3.5, 1, 2, 2.3356245930989585">
+      <DataClassMoniker Name="/DefectModelDataContext/Defect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90e4bfab-10d1-47ff-ae30-bd1cb12a8d1a" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3563dbd4-53d0-4447-b0c9-fac18a13109d" absoluteBounds="0.75, 1.375, 2, 1.3805261230468755">
+      <DataClassMoniker Name="/DefectModelDataContext/DefectUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d45dc1ff-41e8-4d6d-9804-01df636b3c45" absoluteBounds="0.765, 1.835, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81446c17-b5d0-4c49-9914-4d356b4296dc" absoluteBounds="3.5, 5.375, 2, 1.3805261230468755">
+      <DataClassMoniker Name="/DefectModelDataContext/NotificationSubscription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4f1b9b1-7fdd-445a-a068-e8d69cbd4950" absoluteBounds="3.515, 5.835, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81aab1c5-6c65-4f78-995b-e3b2cc69818b" absoluteBounds="0.75, 5.5, 2, 1.1895064290364594">
+      <DataClassMoniker Name="/DefectModelDataContext/Project" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e66a3709-e1e8-45ab-9e27-04ef61c7772a" absoluteBounds="0.765, 5.96, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.06526306152344); (3.5 : 2.06526306152344)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DefectModelDataContext/DefectUser/DefectUser_Defect" />
+      <nodes>
+        <classShapeMoniker Id="3563dbd4-53d0-4447-b0c9-fac18a13109d" />
+        <classShapeMoniker Id="2afb86f9-5255-4181-9420-2d275620b62d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.65763153076172); (3.5 : 1.65763153076172)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DefectModelDataContext/DefectUser/DefectUser_Defect1" />
+      <nodes>
+        <classShapeMoniker Id="3563dbd4-53d0-4447-b0c9-fac18a13109d" />
+        <classShapeMoniker Id="2afb86f9-5255-4181-9420-2d275620b62d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.5); (3.125 : 5.125); (3.125 : 2.7316958273112); (3.5 : 2.7316958273112)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DefectModelDataContext/Project/Project_Defect" />
+      <nodes>
+        <classShapeMoniker Id="81aab1c5-6c65-4f78-995b-e3b2cc69818b" />
+        <classShapeMoniker Id="2afb86f9-5255-4181-9420-2d275620b62d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.12600571451823); (3.5 : 6.12600571451823)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DefectModelDataContext/Project/Project_NotificationSubscription" />
+      <nodes>
+        <classShapeMoniker Id="81aab1c5-6c65-4f78-995b-e3b2cc69818b" />
+        <classShapeMoniker Id="81446c17-b5d0-4c49-9914-4d356b4296dc" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
