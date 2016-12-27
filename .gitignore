@@ -15,3 +15,6 @@
 /packages
 /regex/bin
 /regex/obj
+/emit/EmitDemo/.vs
+/emit/EmitDemo/EmitDemo/obj
+/emit/EmitDemo/EmitDemo/bin
