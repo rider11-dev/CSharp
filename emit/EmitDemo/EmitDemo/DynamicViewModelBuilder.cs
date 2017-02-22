@@ -40,22 +40,27 @@ namespace EmitDemo
                 return _moduleBuilder;
             }
         }
-        public static TInterface GetInstance<TInterface>()
+        public static TInterface GetInstance<TInterface>(Type parent = null, Func<IEnumerable<PropCustomAttrUnit>> propAttrProvider = null)
         {
             var iType = typeof(TInterface);
             if (!iType.IsInterface)
             {
                 throw new ArgumentException("只能是接口", "TInterface");
             }
+            IEnumerable<PropCustomAttrUnit> propAttrs = null;
+            if (propAttrProvider != null)
+            {
+                propAttrs = propAttrProvider();
+            }
             if (!_vmTypes.ContainsKey(iType))
             {
                 TypeBuilder typeBuilder = ModuleBuilder.DefineType(string.Format("{0}.{1}_Impl", AsmName, iType.Name),
-                TypeAttributes.Public, typeof(BaseModel), new Type[] { iType });
+                TypeAttributes.Public, parent, new Type[] { iType });
 
                 var props = typeof(TInterface).GetProperties();
                 foreach (var prop in props)
                 {
-                    DefineProperty(typeBuilder, prop);
+                    DefineProperty(typeBuilder, prop, propAttrs == null ? null : propAttrs.Where(u => u.prop_name == prop.Name).FirstOrDefault());
                 }
                 var type = typeBuilder.CreateType();
                 _vmTypes.Add(iType, type);
@@ -65,7 +70,7 @@ namespace EmitDemo
             return (TInterface)obj;
         }
 
-        private static void DefineProperty(TypeBuilder typeBuilder, PropertyInfo prop)
+        private static void DefineProperty(TypeBuilder typeBuilder, PropertyInfo prop, PropCustomAttrUnit attrUnit = null)
         {
             //定义私有字段
             FieldBuilder fldBuilder = typeBuilder.DefineField("_" + prop.Name, prop.PropertyType, FieldAttributes.Private);
@@ -108,17 +113,70 @@ namespace EmitDemo
             setterIL.Emit(OpCodes.Ldarg_1);
             setterIL.Emit(OpCodes.Stfld, fldBuilder);//替换字段的值
             //调用父类方法，通知更改
-            setterIL.Emit(OpCodes.Ldarg_0);
-            setterIL.Emit(OpCodes.Ldstr, prop.Name);
-            setterIL.Emit(OpCodes.Call, typeof(BaseModel).GetMethod("RaisePropertyChanged"));
+            if (typeBuilder.BaseType == typeof(BaseModel))
+            {
+                setterIL.Emit(OpCodes.Ldarg_0);
+                setterIL.Emit(OpCodes.Ldstr, prop.Name);
+                setterIL.Emit(OpCodes.Call, typeof(BaseModel).GetMethod("RaisePropertyChanged"));
+            }
             setterIL.Emit(OpCodes.Ret);
-
             propBuilder.SetGetMethod(getterBuilder);
             propBuilder.SetSetMethod(setterBuilder);
 
             //2、属性特性
-            CustomAttributeBuilder attrBuilder = new CustomAttributeBuilder(typeof(RequiredAttribute).GetConstructor(Type.EmptyTypes), new object[0]);
-            propBuilder.SetCustomAttribute(attrBuilder);
+            if (attrUnit != null && attrUnit.HasAttr)
+            {
+                var error = string.Empty;
+                if (!attrUnit.check(out error))
+                {
+                    throw new Exception(string.Format("创建自定义类型——添加属性特性错误：{0}", error));
+                }
+                CustomAttributeBuilder attrBuilder = null;
+                ConstructorInfo ctorInfo = null;
+                List<Type> ctorArgTypes = new List<Type>();
+                List<object> ctorArgs = new List<object>();
+                List<PropertyInfo> namedProperties = new List<PropertyInfo>();
+                List<object> propertyValues = new List<object>();
+                foreach (var attr in attrUnit.attrs)
+                {
+                    attrBuilder = null;
+                    ctorInfo = null;
+                    ctorArgTypes.Clear();
+                    ctorArgs.Clear();
+                    namedProperties.Clear();
+                    propertyValues.Clear();
+
+                    var attrType = Type.GetType(attr.attr_type);
+                    if (!string.IsNullOrWhiteSpace(attr.error_msg))
+                    {
+                        namedProperties.Add(attrType.GetProperty("ErrorMessage"));
+                        propertyValues.Add(attr.error_msg);
+                    }
+                    if (!string.IsNullOrWhiteSpace(attr.error_msg_res_name))
+                    {
+                        namedProperties.Add(attrType.GetProperty("ErrorMessageResourceName"));
+                        propertyValues.Add(attr.error_msg_res_name);
+                    }
+                    if (!string.IsNullOrWhiteSpace(attr.error_msg_res_type))
+                    {
+                        namedProperties.Add(attrType.GetProperty("ErrorMessageResourceType"));
+                        propertyValues.Add(Type.GetType(attr.error_msg_res_type));
+                    }
+                    if (!string.IsNullOrWhiteSpace(attr.ctor_arg_types))
+                    {
+                        ctorArgTypes.AddRange(attr.ctor_arg_types.Split(',').Select(s => Type.GetType(s)));
+                        for (int idx = 0; idx < ctorArgTypes.Count; idx++)
+                        {
+                            ctorArgs.Add(Convert.ChangeType(attr.ctor_arg_values[idx], ctorArgTypes[idx]));
+                        }
+                        //ctorArgs.AddRange(attr.ctor_arg_values);
+                    }
+                    ctorInfo = attrType.GetConstructor(ctorArgTypes.ToArray());
+                    attrBuilder = new CustomAttributeBuilder(ctorInfo, ctorArgs.ToArray(), namedProperties.ToArray(), propertyValues.ToArray());
+                    propBuilder.SetCustomAttribute(attrBuilder);
+                }
+            }
+
         }
 
     }

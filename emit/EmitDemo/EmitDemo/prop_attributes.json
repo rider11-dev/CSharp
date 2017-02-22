@@ -1,0 +1,36 @@
+﻿[
+  {
+    "prop_name": "username",
+    "attrs": [
+      {
+        "attr_type": "System.ComponentModel.DataAnnotations.RequiredAttribute,System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35",
+        "ctor_arg_types": "", //以逗号隔开
+        "ctor_arg_values": "",
+        "error_msg": "用户名不能为空",
+        "error_msg_res_name": "",
+        "error_msg_res_type": ""
+      },
+      {
+        "attr_type": "System.ComponentModel.DataAnnotations.MaxLengthAttribute,System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35",
+        "ctor_arg_types": "System.Int32", //以逗号隔开
+        "ctor_arg_values": [ 2 ],
+        "error_msg": "",
+        "error_msg_res_name": "max_length",
+        "error_msg_res_type": "EmitDemo.Resource,EmitDemo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+      }
+    ]
+  },
+  {
+    "prop_name": "age",
+    "attrs": [
+      {
+        "attr_type": "System.ComponentModel.DataAnnotations.RangeAttribute,System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35",
+        "ctor_arg_types": "System.Int32,System.Int32", //以逗号隔开
+        "ctor_arg_values": [ 18, 100 ],
+        "error_msg": "年龄必须在{1}和{2}之间",
+        "error_msg_res_name": "",
+        "error_msg_res_type": ""
+      }
+    ]
+  }
+]

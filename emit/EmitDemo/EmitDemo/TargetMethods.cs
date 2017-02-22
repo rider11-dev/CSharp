@@ -111,5 +111,50 @@ namespace EmitDemo
                 return num;
             }
         }
+
+
+        public class Base
+        {
+            string _a;
+            bool _b;
+            int _c;
+            DateTime _d;
+            public Base()
+            {
+
+            }
+
+
+            public Base(string a, bool b, int c)
+            {
+                _a = a;
+                _b = b;
+                _c = c;
+            }
+
+            public Base(string a, bool b, int c, DateTime d) : this(a, b, c)
+            {
+                _d = d;
+            }
+
+            //public Base(string a, bool b, int c, DateTime d, int e, string fff)
+            //{
+
+            //}
+
+            public override string ToString()
+            {
+                return string.Format("a:{0},b:{1},c:{2},d:{3}", _a, _b, _c, _d.ToString("yyyy-MM-dd"));
+            }
+        }
+
+        public class Sub : Base
+        {
+            public Sub() { }
+            public Sub(string a, bool b, int c) : base(a, b, c) { }
+            public Sub(string a, bool b, int c, DateTime d) : base(a, b, c, d) { }
+            //public Sub(string a, bool b, int c, DateTime d, int e, string fff) : base(a, b, c, d, e, fff) { }
+
+        }
     }
 }
